@@ -12,10 +12,8 @@ class ViewController: UIViewController {
 
     var input:String = ""
     
-    @IBAction func textField(_ sender: UITextField) {
-        input = sender.text!
-        print(input)
-    }
+
+    @IBOutlet weak var textField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +27,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let resultViewController:ResultViewController = segue.destination as! ResultViewController
-        resultViewController.name = input
+        resultViewController.name = textField.text!
     }
 
     @IBAction func unwind(_ segue:UIStoryboardSegue){
